@@ -1,9 +1,13 @@
 package com.example.crud.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -22,6 +26,10 @@ public class Cliente {
     private Integer idade;
 
     private String EstadoCivil;
+
+    @OneToMany
+    @JoinColumn(name = "ID_CLIENTE")
+    private List<Postagem> postagens;
     //#endregion
 
     
@@ -66,6 +74,14 @@ public class Cliente {
     
     public void setEstadoCivil(String estadoCivil) {
         EstadoCivil = estadoCivil;
+    }
+
+    public List<Postagem> getPostagens() {
+        return postagens;
+    }
+
+    public void setPostagens(List<Postagem> postagens) {
+        this.postagens = postagens;
     }
     //#endregion
     
