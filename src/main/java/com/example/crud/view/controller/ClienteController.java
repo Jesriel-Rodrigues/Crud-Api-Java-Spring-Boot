@@ -16,7 +16,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.example.crud.model.Postagem;
 import com.example.crud.services.ClienteService;
+import com.example.crud.services.PostagemService;
 import com.example.crud.shared.ClienteDTO;
 import com.example.crud.view.model.ClienteRequest;
 import com.example.crud.view.model.ClienteResponse;
@@ -27,6 +30,9 @@ public class ClienteController {
     
     @Autowired
     ClienteService clienteService;
+
+    @Autowired
+    PostagemService postagemService;
 
     ModelMapper mapper = new ModelMapper();
     @GetMapping
@@ -74,5 +80,15 @@ public class ClienteController {
         ClienteResponse clienteRes = mapper.map(clienteDto, ClienteResponse.class);
 
         return new ResponseEntity<>(clienteRes, HttpStatus.OK);
+    }
+
+    @GetMapping("/posts")
+    public List<Postagem> obterPostagens() {
+        return postagemService.obterPostagens();
+    }
+
+    @PostMapping("/posts/{id}")
+    public Postagem publicaPostagem(@RequestBody Postagem post, @PathVariable Integer id) {
+        return postagemService.publicaPostagem(post,id);
     }
 }

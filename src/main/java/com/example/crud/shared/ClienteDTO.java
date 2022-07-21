@@ -1,5 +1,6 @@
 package com.example.crud.shared;
 
+
 public class ClienteDTO {
 
     
@@ -13,11 +14,12 @@ public class ClienteDTO {
      private Integer idade;
  
      private String EstadoCivil;
+
      //#endregion
  
      
-     
-     //#region Metodos Getters e Setters
+
+    //#region Metodos Getters e Setters
      public Integer getId() {
          return id;
      }

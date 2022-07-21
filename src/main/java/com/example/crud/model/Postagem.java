@@ -13,6 +13,7 @@ import javax.persistence.Table;
 @Table(name = "postagem")
 public class Postagem {
     
+    //#region
     @Id //Transforma essa coluna em primary key
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
@@ -24,7 +25,9 @@ public class Postagem {
     @ManyToOne
     @JoinColumn(name = "ID_CLIENTE")
     private Cliente cliente;
+    //#endregion
 
+    //#region
     public Integer getId() {
         return id;
     }
@@ -56,6 +59,8 @@ public class Postagem {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
+
+    //#endregion
 
     
 }

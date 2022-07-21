@@ -54,6 +54,7 @@ public class ClienteService {
      */
     public ClienteDTO cadastrar(ClienteDTO clienteDto) {
         clienteDto.setId(null);
+        // clienteDto.setPostagens(null);
 
         Cliente cliente = mapper.map(clienteDto, Cliente.class);
 
