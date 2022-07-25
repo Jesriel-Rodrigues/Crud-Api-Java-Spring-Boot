@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.crud.model.Cliente;
-import com.example.crud.model.Postagem;
+import com.example.crud.model.Entities.Cliente;
+import com.example.crud.model.Entities.Postagem;
 import com.example.crud.repository.PostagemRepository;
 import com.example.crud.shared.ClienteDTO;
 

@@ -7,7 +7,8 @@ import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.example.crud.model.Cliente;
+
+import com.example.crud.model.Entities.Cliente;
 import com.example.crud.model.exception.ResourceNotFoundException;
 import com.example.crud.repository.ClienteRepository;
 import com.example.crud.shared.ClienteDTO;
