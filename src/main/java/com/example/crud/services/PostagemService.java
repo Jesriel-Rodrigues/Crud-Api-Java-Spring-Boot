@@ -6,10 +6,10 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.crud.model.Entities.Cliente;
+import com.example.crud.model.Entities.Usuario;
 import com.example.crud.model.Entities.Postagem;
 import com.example.crud.repository.PostagemRepository;
-import com.example.crud.shared.ClienteDTO;
+import com.example.crud.shared.UsuarioDTO;
 
 @Service
 public class PostagemService {
@@ -18,7 +18,7 @@ public class PostagemService {
     PostagemRepository postagemRepository;
 
     @Autowired
-    ClienteService clienteService;
+    UsuarioService usuarioService;
 
     public List<Postagem> obterPostagens() {
         List<Postagem> postagens = postagemRepository.findAll();
@@ -26,9 +26,9 @@ public class PostagemService {
     }
 
     public Postagem publicaPostagem(Postagem post, Integer id) {
-        Optional<ClienteDTO> clienteDto = clienteService.obterPorId(id);
-        Cliente cliente = clienteService.mapper.map(clienteDto.get(), Cliente.class);
-        post.setCliente(cliente);
+        Optional<UsuarioDTO> usuarioDto = usuarioService.obterPorId(id);
+        Usuario usuario = usuarioService.mapper.map(usuarioDto.get(), Usuario.class);
+        post.setUsuario(usuario);
         postagemRepository.save(post);
         return post;
     }

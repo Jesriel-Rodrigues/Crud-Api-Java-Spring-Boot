@@ -3,9 +3,9 @@ package com.example.crud.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.crud.model.Entities.Cliente;
+import com.example.crud.model.Entities.Usuario;
 
 @Repository
-public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
+public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
     
 }

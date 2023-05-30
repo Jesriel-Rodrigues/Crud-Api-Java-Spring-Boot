@@ -1,6 +1,6 @@
 package com.example.crud.view.model;
 
-public class ClienteResponse {
+public class UsuarioResponse {
       //#region Atributos
       private Integer id;
  

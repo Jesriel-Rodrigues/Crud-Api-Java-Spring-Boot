@@ -1,7 +1,7 @@
 package com.example.crud.shared;
 
 
-public class ClienteDTO {
+public class UsuarioDTO {
 
     
      //#region Atributos

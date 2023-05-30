@@ -24,7 +24,7 @@ public class Postagem {
 
     @ManyToOne
     @JoinColumn(name = "ID_CLIENTE")
-    private Cliente cliente;
+    private Usuario usuario;
     //#endregion
 
     //#region
@@ -52,12 +52,12 @@ public class Postagem {
         this.conteudo = conteudo;
     }
 
-    public Cliente getCliente() {
-        return cliente;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     //#endregion

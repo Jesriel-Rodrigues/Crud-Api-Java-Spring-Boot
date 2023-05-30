@@ -5,7 +5,7 @@ server:
 # Caminho banco de dados
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5430/clientes
+    url: jdbc:postgresql://localhost:5430/usuarios
 # Usuario de conexão do banco de dados
     username: postgres
 # Senha de conexão banco de dados
