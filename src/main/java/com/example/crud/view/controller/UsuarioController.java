@@ -17,9 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.crud.model.Entities.Postagem;
 import com.example.crud.services.UsuarioService;
-import com.example.crud.services.PostagemService;
 import com.example.crud.shared.UsuarioDTO;
 import com.example.crud.view.model.UsuarioRequest;
 import com.example.crud.view.model.UsuarioResponse;
@@ -31,8 +29,6 @@ public class UsuarioController {
     @Autowired
     UsuarioService usuarioService;
 
-    @Autowired
-    PostagemService postagemService;
 
     ModelMapper mapper = new ModelMapper();
     @GetMapping
@@ -47,11 +43,11 @@ public class UsuarioController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<UsuarioResponse>> obterPorId(@PathVariable Integer id) {
+    public ResponseEntity<UsuarioResponse> obterPorId(@PathVariable Integer id) {
         Optional<UsuarioDTO> usuarioDto = usuarioService.obterPorId(id);
         UsuarioResponse UsuarioRes = mapper.map(usuarioDto.get(), UsuarioResponse.class);
 
-        return new ResponseEntity<>(Optional.of(UsuarioRes), HttpStatus.OK);
+        return new ResponseEntity<>((UsuarioRes), HttpStatus.OK);
     }
 
     @PostMapping
@@ -80,15 +76,5 @@ public class UsuarioController {
         UsuarioResponse usuarioRes = mapper.map(usuarioDto, UsuarioResponse.class);
 
         return new ResponseEntity<>(usuarioRes, HttpStatus.OK);
-    }
-
-    @GetMapping("/posts")
-    public List<Postagem> obterPostagens() {
-        return postagemService.obterPostagens();
-    }
-
-    @PostMapping("/posts/{id}")
-    public Postagem publicaPostagem(@RequestBody Postagem post, @PathVariable Integer id) {
-        return postagemService.publicaPostagem(post,id);
     }
 }

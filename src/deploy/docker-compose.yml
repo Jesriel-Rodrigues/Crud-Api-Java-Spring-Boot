@@ -11,3 +11,21 @@ services:
       - "5430:5432"
     volumes:
       - /temp
+    networks:
+      - minha-rede
+
+  crud-aplication:
+    container_name: crud-aplication
+    image: jesriel/crud-aplication
+    environment:
+      - DB_URL=jdbc:postgresql://postgres:5432/usuarios
+    volumes:
+      - ./application.yml:/app/application.yml
+    ports:
+      - "8080:8080"
+    networks:
+      - minha-rede
+
+networks:
+  minha-rede:
+    driver: bridge
